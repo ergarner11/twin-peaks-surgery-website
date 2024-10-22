@@ -1,0 +1,60 @@
+@mixin box-shadow(
+  $horizontalOffset: 4px,
+  $verticalOffset: 4px,
+  $blurRadius: 10px,
+  $spreadRadius: 0
+) {
+  box-shadow: $horizontalOffset $verticalOffset $blurRadius $spreadRadius
+    rgba(0, 0, 0, 0.1);
+}
+
+@mixin bannner-img($imgUrl) {
+  background-image: url($imgUrl);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  @media screen and (min-width: 768px) {
+    height: 500px;
+  }
+  @media screen and (min-width: 991px) {
+    height: 600px;
+    background-position: top;
+    background-attachment: fixed;
+  }
+}
+
+@mixin flex-row-aligned {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+%flex-row-aligned {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+%flex-centered {
+  @extend %flex-row-aligned;
+  justify-content: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-column-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+%container {
+  max-width: 1200px;
+  padding: 0px;
+}

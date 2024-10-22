@@ -1,0 +1,67 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+@import "../typography.scss";
+.home {
+  .intro {
+    @extend %background-topography;
+    p {
+      margin-top: 40px;
+      font-size: 16px;
+    }
+  }
+  .pricing {
+    p {
+      font-weight: bolder;
+    }
+    ul {
+      li {
+        list-style: disc;
+        font-family: $quicksand;
+        height: unset;
+        @media screen and (min-width: 768px) {
+          font-size: 18px;
+          margin-top: 10px;
+        }
+      }
+    }
+    h2 {
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+      }
+    }
+  }
+  .content-container {
+    @extend %flex-centered;
+  }
+  .content-block {
+    @extend %container;
+    @extend %flex-column;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-self: center;
+    @media screen and (min-width: 768px) {
+      margin: 40px;
+      padding: 25px;
+      p {
+        font-size: 22px;
+      }
+    }
+    .header {
+      @extend %flex-row-aligned;
+      margin: 0px;
+      font-family: $headingFont;
+      font-weight: bold;
+      line-height: 1.3;
+      @media screen and (min-width: 768px) {
+        font-size: 35px;
+      }
+      svg {
+        margin-right: 15px;
+        height: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+@import "../typography.scss";
+.footer {
+  @extend %flex-column;
+  background-color: $layoutDarkBlue;
+  padding: 20px;
+  * {
+    font-family: $roboto;
+    color: $layoutWhite;
+  }
+  justify-content: center;
+  p {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .documents {
+    @extend %flex-row-aligned;
+    justify-content: center;
+    a {
+      text-align: center;
+      color: $layoutWhite;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    span {
+      margin: 0px 5px;
+    }
+  }
+}
