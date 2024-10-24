@@ -41,28 +41,40 @@ function Navbar({ selectedTab, selectedCategory, selectedLevel2 }) {
           handleClick={() =>
             setExpandCategory(expandCategory ? "" : "services")
           }
-          submenuConfig={[
-            {
-              level2Match: "dog-dental-care",
-              pageLink: "/services/dog-dental-care",
-              linkText: "Dog Dental Care",
-            },
-            {
-              level2Match: "dog-foreign-body-surgery",
-              pageLink: "/services/dog-foreign-body-surgery",
-              linkText: "Dog Foreign Body Surgery",
-            },
-            {
-              level2Match: "cat-dental-care",
-              pageLink: "/services/cat-dental-care",
-              linkText: "Cat Dental Care",
-            },
-            {
-              level2Match: "cat-foreign-body-surgery",
-              pageLink: "/services/cat-foreign-body-surgery",
-              linkText: "Cat Foreign Body Surgery",
-            },
-          ]}
+          submenu={
+            <ServicesSubmenu
+              selectedLevel2={selectedLevel2}
+              dogSubmenuConfig={[
+                {
+                  level2Match: "dog-dental-care",
+                  pageLink: "/services/dog-dental-care",
+                  linkText: "Dental Care",
+                },
+                {
+                  level2Match: "dog-mass-removal",
+                  pageLink: "/services/dog-mass-removal",
+                  linkText: "Mass Removal",
+                },
+                {
+                  level2Match: "dog-foreign-body-surgery",
+                  pageLink: "/services/dog-foreign-body-surgery",
+                  linkText: "Foreign Body Surgery",
+                },
+              ]}
+              catSubmenuConfig={[
+                {
+                  level2Match: "cat-dental-care",
+                  pageLink: "/services/cat-dental-care",
+                  linkText: "Dental Care",
+                },
+                {
+                  level2Match: "cat-foreign-body-surgery",
+                  pageLink: "/services/cat-foreign-body-surgery",
+                  linkText: "Foreign Body Surgery",
+                },
+              ]}
+            />
+          }
         />
       </ul>
     </div>
@@ -101,7 +113,7 @@ function Tab({
   selectedLevel2,
   expandCategory,
   handleClick,
-  submenuConfig,
+  submenu,
 }) {
   return (
     <React.Fragment>
@@ -121,12 +133,7 @@ function Tab({
             {tabText}
           </span>
         </li>
-        {expandCategory === selectedTabMatch && (
-          <Submenu
-            selectedLevel2={selectedLevel2}
-            submenuConfig={submenuConfig}
-          />
-        )}
+        {expandCategory === selectedTabMatch && submenu}
       </Mobile>
       <NotMobile>
         <li
@@ -141,17 +148,45 @@ function Tab({
             </Link>
           )}
           {!tabLink && <span className="tab-content">{tabText}</span>}
-          <Submenu
-            selectedLevel2={selectedLevel2}
-            submenuConfig={submenuConfig}
-          />
+          {submenu}
         </li>
       </NotMobile>
     </React.Fragment>
   );
 }
 
-function Submenu({ selectedLevel2, submenuConfig }) {
+function ServicesSubmenu({
+  selectedLevel2,
+  dogSubmenuConfig,
+  catSubmenuConfig,
+}) {
+  return (
+    <div className="nav-tabs">
+      <ul className="submenu">
+        <Mobile>
+          <div className="roboto my-2 ms-5 white">Dogs</div>
+        </Mobile>
+        <NotMobile>
+          <div className="roboto my-2 ms-3">Dogs</div>
+        </NotMobile>
+        {dogSubmenuConfig.map((t, i) => (
+          <SubmenuLink key={i} selectedLevel2={selectedLevel2} config={t} />
+        ))}
+        <Mobile>
+          <div className="roboto my-2 ms-5 white">Cats</div>
+        </Mobile>
+        <NotMobile>
+          <div className="roboto my-2 ms-3">Cats</div>
+        </NotMobile>
+        {catSubmenuConfig.map((t, i) => (
+          <SubmenuLink key={i} selectedLevel2={selectedLevel2} config={t} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/*function Submenu({ selectedLevel2, submenuConfig }) {
   return (
     <div className="nav-tabs">
       <ul className="submenu">
@@ -161,7 +196,7 @@ function Submenu({ selectedLevel2, submenuConfig }) {
       </ul>
     </div>
   );
-}
+}*/
 
 function SubmenuLink({ selectedLevel2, config }) {
   return (
