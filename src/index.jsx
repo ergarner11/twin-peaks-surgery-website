@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import CatDentalCare from "./components/services/catDentalCare";
 import CatForeignBody from "./components/services/catForeignBody";
+import DogCystotomy from "./components/services/dogCystotomy";
 import DogDentalCare from "./components/services/dogDentalCare";
-import DogMassRemoval from "./components/services/dogMassRemoval";
 import DogForeignBody from "./components/services/dogForeignBody";
+import DogMassRemoval from "./components/services/dogMassRemoval";
 
 import Home from "./components/home";
 import AppointmentRequest from "./components/appointmentRequest";
@@ -29,18 +30,23 @@ const App = () => {
         />
         <Route
           exact
+          path="/services/dog-cystotomy"
+          element={<DogCystotomy />}
+        />
+        <Route
+          exact
           path="/services/dog-dental-care"
           element={<DogDentalCare />}
         />
         <Route
           exact
-          path="/services/dog-mass-removal"
-          element={<DogMassRemoval />}
+          path="/services/dog-foreign-body-surgery"
+          element={<DogForeignBody />}
         />
         <Route
           exact
-          path="/services/dog-foreign-body-surgery"
-          element={<DogForeignBody />}
+          path="/services/dog-mass-removal"
+          element={<DogMassRemoval />}
         />
         <Route
           exact

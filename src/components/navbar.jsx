@@ -46,19 +46,24 @@ function Navbar({ selectedTab, selectedCategory, selectedLevel2 }) {
               selectedLevel2={selectedLevel2}
               dogSubmenuConfig={[
                 {
+                  level2Match: "dog-cystotomy",
+                  pageLink: "/services/dog-cystotomy",
+                  linkText: "Cystotomy",
+                },
+                {
                   level2Match: "dog-dental-care",
                   pageLink: "/services/dog-dental-care",
                   linkText: "Dental Care",
                 },
                 {
-                  level2Match: "dog-mass-removal",
-                  pageLink: "/services/dog-mass-removal",
-                  linkText: "Mass Removal",
-                },
-                {
                   level2Match: "dog-foreign-body-surgery",
                   pageLink: "/services/dog-foreign-body-surgery",
                   linkText: "Foreign Body Surgery",
+                },
+                {
+                  level2Match: "dog-mass-removal",
+                  pageLink: "/services/dog-mass-removal",
+                  linkText: "Mass Removal",
                 },
               ]}
               catSubmenuConfig={[
