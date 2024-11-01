@@ -40,6 +40,8 @@ function Banner() {
         <p>Monday - Friday: 8am - 5pm</p>
         <p>Saturday: Closed</p>
         <p>Sunday: Closed</p>
+        <br />
+        <p>Thanksgiving: Closed</p>
       </div>
     </div>
   );
